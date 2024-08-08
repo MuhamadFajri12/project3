@@ -19,11 +19,14 @@ $routes->group('admin', function($routes){
     $routes->add('post/new', 'PostAdmin::create');
 	$routes->add('post/(:segment)/edit', 'PostAdmin::edit/$1');
 	$routes->get('post/(:segment)/delete', 'PostAdmin::delete/$1');
+
+$routes->get('/auth', 'Auth::index');
+$routes->post('/auth/login', 'Auth::login');
+$routes->get('/auth/logout', 'Auth::logout');
+
+$routes->get('/dashboard', 'Dashboard::index');
 });
-$routes->group('admin', function($routes){
-	$routes->get('post', 'PostAdmin::index');
-	$routes->get('post/(:segment)/preview', 'PostAdmin::preview/$1');
-	$routes->add('post/new', 'PostAdmin::create');
-	$routes->add('post/(:segment)/edit', 'PostAdmin::edit/$1');
-	$routes->get('post/(:segment)/delete', 'PostAdmin::delete/$1');
-});
+
+
+
+	
